@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from aiogram import Router
 from aiogram.types import InlineQuery, InlineQueryResultArticle, \
     InputTextMessageContent
@@ -17,7 +19,7 @@ async def show_results(inline_query: InlineQuery):
     results = []
     for song in songs:
         results.append(InlineQueryResultArticle(
-            id=str(song["result"]["id"]),
+            id=str(uuid4()),
             title=song['result']["title"],
             description=song["result"]["artist_names"],
             input_message_content=InputTextMessageContent(
