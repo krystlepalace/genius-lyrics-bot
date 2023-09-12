@@ -13,7 +13,8 @@ class LyricsFinder:
         return cls.__instance
 
     def init(self):
-        self.genius = lg.Genius(CONFIG.genius_token.get_secret_value())
+        self.genius = lg.Genius(CONFIG.genius_token.get_secret_value(),
+                                timeout=40)
 
     async def search_song(self, name="", page=1):
         result = self.genius.search_songs(name, per_page=5, page=page)

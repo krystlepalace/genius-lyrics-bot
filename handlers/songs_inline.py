@@ -10,12 +10,11 @@ from keyboards import song_url
 
 router = Router()
 finder = LyricsFinder()
-genius = lg.Genius(CONFIG.genius_token.get_secret_value(), timeout=40)
 
 
 @router.inline_query()
 async def show_results(inline_query: InlineQuery):
-    songs = genius.search_songs(inline_query.query, per_page=5, page=1)['hits']
+    songs = await finder.search_song(inline_query.query)
 
     results = []
     for song in songs:
@@ -36,7 +35,7 @@ async def show_results(inline_query: InlineQuery):
 async def load_lyrics(
         chosen_result: ChosenInlineResult,
 ):
-    l = str(genius.lyrics(int(chosen_result.result_id)))
+    l = str(await finder.get_lyrics(int(chosen_result.result_id)))
     message = await main.bot.edit_message_text(
         inline_message_id=chosen_result.inline_message_id,
         text=l
