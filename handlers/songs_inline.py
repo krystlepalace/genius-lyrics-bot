@@ -26,7 +26,8 @@ async def show_results(inline_query: InlineQuery):
                 message_text="Loading text...",
             ),
             reply_markup=song_url.song_url_button(url="genius.com",
-                                  title=song['result']["full_title"]).as_markup()
+                                  title=song['result']["full_title"]).as_markup(),
+            thumbnail_url=song["result"]["header_image_thumbnail_url"]
         ))
     await inline_query.answer(results, is_personal=True)
 
@@ -38,5 +39,5 @@ async def load_lyrics(
     l = str(await finder.get_lyrics(int(chosen_result.result_id)))
     message = await main.bot.edit_message_text(
         inline_message_id=chosen_result.inline_message_id,
-        text=l
+        text=l.split("\n", 1)[1]
     )
