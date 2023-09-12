@@ -13,4 +13,4 @@ async def start_command(message: Message):
 
 @router.message(Command("help"))
 async def help_command(message: Message):
-    await message.answer("Use this bot in inline mode. Just type @geinus_lyrics_bot <song name> and results will appear soon!")
+    await message.answer("Use this bot in inline mode. Just type @lyrics_genius_bot <song name> and results will appear soon!")
