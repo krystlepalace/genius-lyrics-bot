@@ -14,7 +14,7 @@ genius = lg.Genius(CONFIG.genius_token.get_secret_value(), timeout=40)
 
 @router.inline_query()
 async def show_results(inline_query: InlineQuery):
-    songs = genius.search_songs(inline_query.query, per_page=5, page=1)['hits']
+    songs = genius.search_songs(inline_query.query, per_page=1, page=1)['hits']
 
     results = []
     for song in songs:
