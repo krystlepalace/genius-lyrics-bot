@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher
 from config import CONFIG
-from handlers import base
+from handlers import base, songs_inline
 from utils.commands import set_commands
 
 
@@ -12,8 +12,7 @@ async def main():
     dp = Dispatcher()
 
     dp.include_routers(base.router,
-                       tags.router,
-                       audio.router,
+                       songs_inline.router
                        )
 
     await set_commands(bot)
