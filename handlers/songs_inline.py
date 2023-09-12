@@ -15,12 +15,10 @@ genius = lg.Genius(CONFIG.genius_token.get_secret_value(), timeout=40)
 
 @router.inline_query()
 async def show_results(inline_query: InlineQuery):
-    songs = genius.search_songs(inline_query.query, per_page=1, page=1)['hits']
+    songs = genius.search_songs(inline_query.query, per_page=5, page=1)['hits']
 
     results = []
     for song in songs:
-        iddd= str(song['result']['id'])
-        print(f"Result id N: {iddd}")
         results.append(InlineQueryResultArticle(
             id=str(song['result']["id"]),
             title=song['result']["title"],
@@ -38,7 +36,6 @@ async def show_results(inline_query: InlineQuery):
 async def load_lyrics(
         chosen_result: ChosenInlineResult,
 ):
-    print(f"Result id {chosen_result.result_id}")
     l = str(genius.lyrics(int(chosen_result.result_id)))
     message = await main.bot.edit_message_text(
         inline_message_id=chosen_result.inline_message_id,
