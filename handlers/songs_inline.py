@@ -25,7 +25,7 @@ async def show_results(inline_query: InlineQuery):
             input_message_content=InputTextMessageContent(
                 message_text="Loading text...",
             ),
-            reply_markup=song_url.song_url_button(url="genius.com",
+            reply_markup=song_url.song_url_button(url=song['result']["url"],
                                   title=song['result']["full_title"]).as_markup(),
             thumbnail_url=song["result"]["header_image_thumbnail_url"]
         ))
