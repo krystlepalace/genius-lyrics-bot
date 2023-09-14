@@ -44,5 +44,5 @@ sudo systemctl start genius-bot.service
 
 
 ## TODO
-1. Make endless inline-menu, because now it's limited and only display 5 songs.
+1. Make endless inline-menu, because now it's limited and only displays 5 songs.
 2. Solve problem with Genius API 403 error on VPS/VDS servers
