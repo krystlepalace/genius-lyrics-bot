@@ -36,7 +36,11 @@ python main.py
 ```
 
 ### Systemd
-Work-in-progress
+Replace '.example' from genius-bot.service.example so it's just genius-bot.service.
+Then just copy service file to /etc/systemd/system/
+```bash
+sudo systemctl start genius-bot.service
+```
 
 
 ## TODO
