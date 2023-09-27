@@ -1,3 +1,5 @@
+![cover](https://res.cloudinary.com/practicaldev/image/fetch/s--gCbTUjxJ--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sd69burmb666d0iu37ry.png)
+
 # genius-lyrics-bot
 Telegram bot in inline mode that can search and send songs lyrics from genius.com
 
